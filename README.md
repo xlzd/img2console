@@ -5,7 +5,18 @@
 
 在终端尝试执行下面的命令：
 
+```bash
+curl "fuckthe.app:1926"
+```
+
 ![img](assets/demo-output.png)
 
+可以尝试使用 `url` 和 `cols` 参数：
+
+```bash
+curl "fuckthe.app:1926/?url=https://pic2.zhimg.com/e91a265d085585ffd589123102b6d38d_b.jpg&cols=80"
+```
+
+![img](assets/demo-output2.png)
 
 [license-badge]:   https://img.shields.io/badge/license-MIT-000000.svg
