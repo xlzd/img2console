@@ -5,7 +5,6 @@ import (
 	"image"
 	_ "image/jpeg"
 	_ "image/png"
-	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -49,32 +48,32 @@ func resizeImage(img image.Image, cols int) image.Image {
 	return resize.Resize(width, height, img, resize.Lanczos3)
 }
 
-func ConvertFromPath(path string, cols int) (output string) {
+func ConvertFromPath(path string, cols int) (output string, err error) {
 	file, err := os.Open(path)
 	if err != nil {
-		log.Fatal(err)
+		return "", err
 	}
 
 	defer file.Close()
 
 	img, _, err := image.Decode(file)
 	if err != nil {
-		log.Fatal(err)
+		return "", err
 	}
 
-	return convertImage(resizeImage(img, cols))
+	return convertImage(resizeImage(img, cols)), nil
 }
 
-func ConvertFromURL(url string, cols int) (output string) {
+func ConvertFromURL(url string, cols int) (output string, err error) {
 	response, err := http.Get(url)
 	if err != nil {
-		log.Fatal(err)
+		return "", err
 	}
 	defer response.Body.Close()
 
 	img, _, err := image.Decode(response.Body)
 	if err != nil {
-		log.Fatal(err)
+		return "", err
 	}
-	return convertImage(resizeImage(img, cols))
+	return convertImage(resizeImage(img, cols)), nil
 }
