@@ -19,4 +19,10 @@ curl "xlzd.me:1926/?url=https://pic2.zhimg.com/e91a265d085585ffd589123102b6d38d_
 
 ![img](assets/demo-output2.png)
 
+
+## License
+
+img2console is licensed under the [MIT License][License]
+
 [license-badge]:   https://img.shields.io/badge/license-MIT-000000.svg
+[License]: https://github.com/xlzd/img2console/blob/master/LICENSE
