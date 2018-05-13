@@ -19,6 +19,13 @@ curl "xlzd.me:1926/?url=https://pic2.zhimg.com/e91a265d085585ffd589123102b6d38d_
 
 ![img](assets/demo-output2.png)
 
+## TODO
+
+- [ ] 详细的 img2console 文档
+- [ ] 详细的命令行工具文档
+- [ ] 详细的 curl 工具文档
+- [ ] 详细的代码注释
+- [ ] 认真的 README
 
 ## License
 
