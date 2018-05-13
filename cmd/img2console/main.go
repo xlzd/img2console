@@ -1,13 +1,12 @@
-package img2console
+package main
 
 import (
+	"bufio"
 	"flag"
 	"fmt"
-
+	"log"
 	"os"
 	"strings"
-
-	"bufio"
 
 	"github.com/xlzd/img2console"
 )
@@ -42,11 +41,17 @@ func main() {
 		os.Exit(2)
 	}
 
-	var consoleImg string
+	var (
+		consoleImg string
+		err        error
+	)
 	if cfg.path != "" {
-		consoleImg = img2console.ConvertFromPath(cfg.path, cfg.cols)
+		consoleImg, err = img2console.ConvertFromPath(cfg.path, cfg.cols)
 	} else {
-		consoleImg = img2console.ConvertFromURL(cfg.url, cfg.cols)
+		consoleImg, err = img2console.ConvertFromURL(cfg.url, cfg.cols)
+	}
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	var writer *bufio.Writer
