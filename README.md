@@ -6,7 +6,7 @@
 在终端尝试执行下面的命令：
 
 ```bash
-curl "fuckthe.app:1926"
+curl xlzd.me:1926
 ```
 
 ![img](assets/demo-output.png)
