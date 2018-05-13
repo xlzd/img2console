@@ -9,12 +9,12 @@
 curl xlzd.me:1926
 ```
 
-![img](assets/demo-output.png)
+![img](assets/demo-output1.png)
 
 可以尝试使用 `url` 和 `cols` 参数：
 
 ```bash
-curl "fuckthe.app:1926/?url=https://pic2.zhimg.com/e91a265d085585ffd589123102b6d38d_b.jpg&cols=80"
+curl "xlzd.me:1926/?url=https://pic2.zhimg.com/e91a265d085585ffd589123102b6d38d_b.jpg&cols=80"
 ```
 
 ![img](assets/demo-output2.png)
