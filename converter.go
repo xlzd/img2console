@@ -3,9 +3,10 @@ package img2console
 import (
 	"fmt"
 	"image"
-	"image/jpeg"
-	"image/png"
+	_ "image/jpeg"
+	_ "image/png"
 	"log"
+	"net/http"
 	"os"
 	"strings"
 
@@ -56,15 +57,24 @@ func ConvertFromPath(path string, cols int) (output string) {
 
 	defer file.Close()
 
-	var img image.Image
-	if strings.HasSuffix(strings.ToLower(path), "png") {
-		img, err = png.Decode(file)
-	} else {
-		img, err = jpeg.Decode(file)
-	}
+	img, _, err := image.Decode(file)
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	return convertImage(resizeImage(img, cols))
+}
+
+func ConvertFromURL(url string, cols int) (output string) {
+	response, err := http.Get(url)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer response.Body.Close()
+
+	img, _, err := image.Decode(response.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
 	return convertImage(resizeImage(img, cols))
 }
