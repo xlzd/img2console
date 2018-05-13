@@ -1,4 +1,4 @@
-package main
+package img2console
 
 import (
 	"flag"
